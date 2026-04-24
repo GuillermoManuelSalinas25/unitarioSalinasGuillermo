@@ -53,7 +53,13 @@ public class FuncionesEval {
      * @return Cantidad de veces que aparece el número en el array.
      */
     public static int contarApariciones(int[] numeros, int valor) {
-        return 0;
+        int contador = 0;
+        for (int numero : numeros) {
+            if (numero == valor) {
+                contador++;
+            }
+        }
+        return contador;
     }
 
 
@@ -92,7 +98,16 @@ public class FuncionesEval {
      * @throws IllegalArgumentException Si el array está vacío o es null.
      */
     public static int encontrarMayor(int[] array) {
-        return 0;
+        if (array == null || array.length == 0) {
+            throw new IllegalArgumentException("El array no puede ser null o vacío");
+        }
+        int mayor = array[0];
+        for (int num : array) {
+            if (num > mayor) {
+                mayor = num;
+            }
+        }
+        return mayor;
     }
 
 

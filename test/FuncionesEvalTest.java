@@ -44,27 +44,58 @@ class FuncionesEvalTest {
 
     @Test
     void testEsPerfectoCero() {
-        assertFalse(FuncionesEval.esPerfecto(0));
+        assertThrows(ArithmeticException.class, () -> FuncionesEval.esPerfecto(0));
     }
 
     @Test
     void testEsPerfectoNegativo() {
-        assertFalse(FuncionesEval.esPerfecto(-6));
+        assertThrows(ArithmeticException.class, () -> FuncionesEval.esPerfecto(-6));
     }
 
     // Función que devuelve el tipo de clima dependiendo de la temperatura introducida
     @Test
     void testTipoClimaFrio() {
-        assertEquals("Frio", FuncionesEval.getTipoClima(5));
+        assertEquals("FRIO", FuncionesEval.getTipoClima(5));
     }
 
     @Test
     void testTipoClimaTemplado() {
-        assertEquals("Templado", FuncionesEval.getTipoClima(21));
+        assertEquals("NUBLADO", FuncionesEval.getTipoClima(15));
     }
 
     @Test
     void testTipoClimaCalor() {
-        assertEquals("Calor", FuncionesEval.getTipoClima(36));
+        assertEquals("CALUROSO", FuncionesEval.getTipoClima(25));
     }
+
+    @Test
+    void testTipoClimaTropical() {
+        assertEquals("TROPICAL", FuncionesEval.getTipoClima(35));
+    }
+
+    // Función que invierte el orden de los elementos de un array de enteros
+    @Test
+    void testInvertirArrayNormal() {
+        int[] original = {1, 2, 3};
+        int[] esperado = {3, 2, 1};
+
+        assertArrayEquals(esperado, FuncionesEval.invertirArray(original));
+    }
+
+    @Test
+    void testInvertirArrayUnElemento() {
+        int[] original = {5};
+        int[] esperado = {5};
+
+        assertArrayEquals(esperado, FuncionesEval.invertirArray(original));
+    }
+
+    @Test
+    void testInvertirArrayVacio() {
+        int[] original = {};
+        int[] esperado = {};
+
+        assertArrayEquals(esperado, FuncionesEval.invertirArray(original));
+    }
+
 }
